@@ -23,6 +23,7 @@ a{color:#7fd6ff}a:hover{color:#ffffff}
 .col.dim{opacity:.28}
 .ev{position:absolute;left:10px;right:10px;border:0;border-radius:10px;color:#fff;text-align:left;cursor:pointer;padding:10px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;box-shadow:0 4px 0 rgba(0,0,0,.35);font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(12.5px,1vw,16px);line-height:1.15;overflow-wrap:anywhere;transition:transform .15s,box-shadow .15s}
 [hidden]{display:none !important}
+.wait{display:none}
 .ev:hover,.ev:focus-visible{z-index:2}
 .ev:hover{transform:translateY(-3px);box-shadow:0 7px 0 rgba(0,0,0,.35)}
 .ev .t{display:block;font-size:12px;font-weight:700;opacity:.9;margin-top:4px}
@@ -41,6 +42,8 @@ header{padding:0 clamp(40px,12vw,110px) !important}
 .d-small{width:clamp(18px,5vw,46px) !important;left:clamp(30px,10vw,140px) !important;top:clamp(46px,13vw,104px) !important}
 .d-bolt{width:clamp(30px,9vw,84px) !important;right:1.5% !important;top:clamp(12px,3vw,28px) !important}
 div.star{transform:scale(.6);transform-origin:top left}
+.wait{display:block !important;position:absolute;right:calc(100% + 6px);top:26%;white-space:nowrap;background:#ffd23f;color:#081f45;font-size:clamp(11px,3.4vw,18px);font-weight:700;padding:clamp(6px,1.8vw,10px) clamp(8px,2.4vw,14px);border-radius:6px;box-shadow:0 3px 0 rgba(0,0,0,.35)}
+.wait::after{content:"";position:absolute;right:-8px;top:50%;margin-top:-6px;border:6px solid transparent;border-left:8px solid #ffd23f;border-right:0}
 div.star[style*="top:8"],div.star[style*="top:9"],div.star[style*="top:1"],div.star[style*="top: 8"],div.star[style*="top: 9"],div.star[style*="top: 1"]{display:none !important}
 svg.star{width:clamp(180px,55vw,480px) !important;height:auto !important}
 .mascot-wrap{position:relative !important;right:auto !important;bottom:auto !important;width:clamp(96px,28vw,200px) !important;margin:clamp(8px,3vw,20px) 0 0 auto;z-index:2}
@@ -130,7 +133,7 @@ dl{font-size:clamp(13px,3.4vw,15px);gap:4px 12px}
 <section class="list" id="list" aria-label="Horario por día"></section>
 <p class="hint">Tocá cualquier actividad para ver detalles y agregarla a tu calendario.</p>
 </main>
-<div class="mascot-wrap"><img class="mascot" src="assets/mapache.png" alt="Mascota mapache de la UNA" style="width:100%;display:block"></div>
+<div class="mascot-wrap"><span class="wait pix">¡Te esperamos!</span><img class="mascot" src="assets/mapache.png" alt="Mascota mapache de la UNA" style="width:100%;display:block"></div>
 </div>
 <dialog id="dlg" aria-labelledby="d-title">
 <div class="dhead" id="d-head"><div><span class="pix" id="d-day" style="font-size:12px"></span><h3 id="d-title"></h3></div><span class="ic" id="d-ic"></span></div>
