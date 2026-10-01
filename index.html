@@ -117,6 +117,17 @@ dl{font-size:clamp(13px,3.4vw,15px);gap:4px 12px}
 .btn{font-size:clamp(13px,3.4vw,15px);min-height:clamp(40px,10.5vw,44px);padding:0 clamp(12px,3.6vw,18px)}
 .soon{font-size:clamp(12px,3.1vw,13px);min-height:clamp(40px,10.5vw,44px);padding:0 12px}
 }
+@media (max-width:900px){
+.list{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(8px,2.6vw,14px);align-items:start}
+.list.single{grid-template-columns:minmax(0,1fr)}
+.lday{background:#0d2c5e;border:2px solid #1d4b8f;border-radius:clamp(8px,2.4vw,12px);padding:clamp(8px,2.4vw,12px);gap:clamp(6px,1.8vw,10px) !important}
+.lday h2{flex-direction:column;align-items:center;text-align:center;gap:4px !important;padding-bottom:clamp(6px,1.8vw,10px);border-bottom:2px solid #1d4b8f;margin-bottom:2px !important}
+.lday h2 span{order:3;width:clamp(28px,9vw,56px) !important;height:4px !important;border-radius:2px}
+.lday h2 small{width:auto !important;padding-left:0 !important;order:2}
+.lev{font-size:clamp(12px,3.4vw,16px) !important;padding:clamp(7px,2vw,12px) clamp(8px,2.4vw,12px) !important;min-height:0 !important;align-items:flex-start !important;gap:6px !important}
+.lev .ic img{width:clamp(20px,5.6vw,30px) !important;height:clamp(20px,5.6vw,30px) !important}
+}
+@media (min-width:600px) and (max-width:900px){.list{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -201,6 +212,7 @@ function render() {
     return '<button type="button" class="pix" data-day="' + t.i + '" aria-pressed="' + (state.day === t.i) + '">' + t.label + '</button>';
   }).join('');
   document.querySelectorAll('.timeline .col').forEach(function (c) { c.classList.toggle('dim', state.day >= 0 && +c.dataset.day !== state.day); });
+  document.getElementById('list').classList.toggle('single', state.day >= 0);
   document.getElementById('list').innerHTML = DAYS.map(function (D, di) {
     if (state.day >= 0 && state.day !== di) return '';
     return '<div class="lday"><h2 class="pix"><span style="width:14px;height:14px;background:' + D.accent + '"></span>' + D.name + ' · ' + D.theme + ' <small>' + D.date + '</small></h2>' +
