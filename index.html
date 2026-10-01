@@ -128,6 +128,29 @@ dl{font-size:clamp(13px,3.4vw,15px);gap:4px 12px}
 .lev .ic img{width:clamp(20px,5.6vw,30px) !important;height:clamp(20px,5.6vw,30px) !important}
 }
 @media (min-width:600px) and (max-width:900px){.list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* Escala tipográfica: cada tipo de texto crece con el ancho de pantalla entre un mínimo y un máximo */
+:root{
+--fs-display:clamp(18px,.5rem + 3.6vw,64px);
+--fs-sub:clamp(11px,.4rem + 1vw,22px);
+--fs-tab:clamp(10px,.45rem + .4vw,14px);
+--fs-day:clamp(11px,.5rem + .35vw,15px);
+--fs-card:clamp(13px,.6rem + .4vw,16px);
+--fs-meta:clamp(10px,.5rem + .2vw,13px);
+--fs-hour:clamp(10px,.5rem + .3vw,13px);
+--fs-body:clamp(12px,.55rem + .3vw,15px);
+--fs-title-modal:clamp(16px,.8rem + .5vw,22px);
+--fs-wait:clamp(14px,.6rem + 1.4vw,26px);
+}
+h1{font-size:var(--fs-display) !important}
+.sub p{font-size:var(--fs-sub) !important}
+.tabs button{font-size:var(--fs-tab) !important}
+.colhead h2,.lday h2{font-size:var(--fs-day) !important}
+.ev,.lev{font-size:var(--fs-card) !important}
+.ev span span,.lev span span,.lday h2 small,#d-day{font-size:var(--fs-meta) !important}
+.hours div{font-size:var(--fs-hour) !important}
+.hint,dl,.btn,.soon{font-size:var(--fs-body) !important}
+.dhead h3{font-size:var(--fs-title-modal) !important}
+.wait{font-size:var(--fs-wait) !important}
 </style>
 </head>
 <body>
