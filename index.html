@@ -18,7 +18,7 @@ a{color:#7fd6ff}a:hover{color:#ffffff}
 .tabs button{cursor:pointer;min-height:44px}
 .tabs button:hover{border-color:#ffd23f}
 .tabs button:focus-visible,.ev:focus-visible,.lev:focus-visible,.btn:focus-visible{outline:3px solid #ffd23f;outline-offset:3px}
-.colbody{position:relative;height:480px;background-image:repeating-linear-gradient(to bottom,rgba(127,214,255,.18) 0 1px,transparent 1px 80px);background-position:0 0}
+.colbody{position:relative;height:560px;background-image:repeating-linear-gradient(to bottom,rgba(127,214,255,.18) 0 1px,transparent 1px 80px);background-position:0 0}
 .col{transition:opacity .25s}
 .col.dim{opacity:.28}
 .ev{position:absolute;left:10px;right:10px;border:0;border-radius:10px;color:#fff;text-align:left;cursor:pointer;padding:10px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;box-shadow:0 4px 0 rgba(0,0,0,.35);font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(12.5px,1vw,16px);line-height:1.15;overflow-wrap:anywhere;transition:transform .15s,box-shadow .15s}
@@ -60,7 +60,7 @@ h1{margin:0;font-size:clamp(26px,5vw,60px);font-weight:700;color:#fff;line-heigh
 .tabs button{padding:0 16px;border-radius:8px;font-size:13px;border:2px solid #1d4b8f;background:#0d2c5e;color:#eaf6ff}
 .tabs button[aria-pressed=true]{background:#ffd23f;border-color:#ffd23f;color:#081f45}
 .timeline{display:grid;grid-template-columns:84px repeat(5,minmax(0,1fr));gap:12px}
-.hours{position:relative;height:480px;border-right:3px solid #2fc6ff;margin-right:6px;margin-top:80px}
+.hours{position:relative;height:560px;border-right:3px solid #2fc6ff;margin-right:6px;margin-top:80px}
 .hours div{position:absolute;right:-10px;transform:translateY(-50%);display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;white-space:nowrap}
 .hours i{width:11px;height:11px;border-radius:50%;background:#2fc6ff;display:inline-block}
 .col{background:#0d2c5e;border:2px solid #1d4b8f;border-radius:12px;overflow:hidden}
@@ -156,7 +156,7 @@ h1{font-size:var(--fs-display) !important}
 .ev,.lev{font-size:var(--fs-card) !important}
 .ev span span,.lev span span,.lday h2 small,#d-day{font-size:var(--fs-meta) !important}
 .hours div{font-size:var(--fs-hour) !important}
-.hint,dl,.btn,.soon{font-size:var(--fs-body) !important}
+.hint,dl,#d-desc,.btn,.soon{font-size:var(--fs-body) !important}
 .dhead h3{font-size:var(--fs-title-modal) !important}
 .wait{font-size:var(--fs-wait) !important}
 @media (max-width:380px){.lday h2 small{font-size:9px !important}}
@@ -181,7 +181,8 @@ h1{font-size:var(--fs-display) !important}
 <dialog id="dlg" aria-labelledby="d-title">
 <div class="dhead" id="d-head"><div><span class="pix" id="d-day" style="font-size:12px"></span><h3 id="d-title"></h3></div><span class="ic" id="d-ic"></span></div>
 <div class="dbody">
-<dl><dt>Fecha</dt><dd id="d-date"></dd><dt>Hora</dt><dd id="d-time"></dd><dt>Lugar</dt><dd id="d-place">[Lugar por confirmar]</dd></dl>
+<dl><dt>Fecha</dt><dd id="d-date"></dd><dt>Hora</dt><dd id="d-time"></dd><dt>Lugar</dt><dd id="d-place"></dd></dl>
+<p id="d-desc" style="margin:0;line-height:1.45;color:#cfe9ff"></p>
 <div class="actions">
 <a class="btn" id="d-reg" target="_blank" rel="noopener" style="background:#2fc6ff;border-color:#2fc6ff;color:#081f45">Inscribirme</a>
 <span class="soon" id="d-soon">Inscripción: link próximamente</span>
@@ -200,15 +201,33 @@ var DAYS = [
 ];
 var COLORS = { blue: '#0a74a6', green: '#4a8320', orange: '#b25a00', pink: '#b0195a' };
 var EVENTS = [
-  { day: 0, title: 'Stand informativo', s: '10:30', e: '11:45', c: 'blue', link: '', ic: 'chat' },
-  { day: 0, title: 'Stand informativo', s: '14:00', e: '15:00', c: 'blue', link: '', ic: 'chat' },
-  { day: 1, title: 'Engineering a Better Tomorrow', s: '9:30', e: '10:35', c: 'green', link: '', ic: 'gear' },
-  { day: 1, title: 'Better Tomorrow Experience', s: '11:00', e: '12:15', c: 'green', link: '', ic: 'bulb' },
-  { day: 1, title: 'IEEE Day Celebration & Community Lunch', s: '13:00', e: '14:15', c: 'green', link: '', ic: 'apple' },
-  { day: 2, title: 'Stand Chapters', s: '9:00', e: '10:00', c: 'orange', link: '', ic: 'users' },
-  { day: 2, title: 'Chapter AESS', s: '10:45', e: '11:45', c: 'orange', link: '', ic: 'rocket' },
-  { day: 3, title: 'Tech Playground', s: '10:30', e: '11:45', c: 'pink', link: '', ic: 'game' },
-  { day: 4, title: 'Gira: CENAT', s: '9:30', e: '10:45', c: 'blue', link: '', ic: 'map' }
+  { day: 0, title: "Stand informativo", s: "12:00", e: "13:00", c: "blue", link: "", ic: "chat",
+    place: "Frente a la soda Padre Royo",
+    desc: "Find Your IEEE Society: descubrí qué sociedad de IEEE va con vos (Software, Salud, Energía, Ciencia, Ambiente, Robótica, Comunicaciones o Nano). IEEE Roulette: girá la ruleta (IEEE, Tecnología, IA, Robótica, Programación, Random o Reto) y ganá stickers, chocolates, pines, lapiceros o merch de IEEE." },
+  { day: 0, title: "Stand informativo", s: "14:00", e: "15:00", c: "blue", link: "", ic: "chat",
+    place: "Edificio de Generales",
+    desc: "Find Your IEEE Society: descubrí qué sociedad de IEEE va con vos (Software, Salud, Energía, Ciencia, Ambiente, Robótica, Comunicaciones o Nano). IEEE Roulette: girá la ruleta (IEEE, Tecnología, IA, Robótica, Programación, Random o Reto) y ganá stickers, chocolates, pines, lapiceros o merch de IEEE." },
+  { day: 1, title: "Engineering a Better Tomorrow", s: "10:00", e: "11:00", c: "green", link: "", ic: "gear",
+    place: "Auditorio Marco Tulio, CIDE",
+    desc: "Exposición corta (máx. 20 min) sobre IEEE Day e IEEE, y mini panel con un charlista del CENAT sobre proyectos, investigación e iniciativas de ciencia, ingeniería y tecnología que ayudan a construir un mejor futuro." },
+  { day: 1, title: "Better Tomorrow Experience", s: "11:00", e: "12:00", c: "green", link: "", ic: "bulb",
+    place: "Afueras del Auditorio Marco Tulio, CIDE",
+    desc: "Actividades prácticas en grupos. A) Water Lab Filter: diseñá un filtro de agua con filtros de café y otros materiales. B) LEGO Mindstorms Robot Design: construí un prototipo de robot de limpieza. C) Natural pH Detector: hacé tiras de pH con repollo morado y comparalas con tiras comerciales." },
+  { day: 1, title: "Celebración IEEE Day", s: "12:00", e: "14:30", c: "green", link: "", ic: "apple",
+    place: "Afueras del Auditorio Marco Tulio, CIDE",
+    desc: "Pastel IEEE Day, decoración oficial y foto grupal. Dos lonas con el logo de IEEE Day para dibujar o pintar lo que para vos representa o inspira un mejor futuro para la ingeniería." },
+  { day: 2, title: "Stand Chapters", s: "11:00", e: "13:00", c: "orange", link: "", ic: "users",
+    place: "Edificio de Biología y Matemática, por la soda de Biología",
+    desc: "Conocé capítulos y grupos de afinidad IEEE como EMBS, NPSS y AESS. Cada uno tendrá una actividad interactiva de unos 40 minutos para presentar su área, proyectos y oportunidades de participación." },
+  { day: 2, title: "Chapter AESS", s: "14:00", e: "15:30", c: "orange", link: "", ic: "rocket",
+    place: "Aula de Biología",
+    desc: "Charla introductoria a IEEE AESS y a la ingeniería aeroespacial y satelital, con un taller de papercraft del CubeSat Proyecto Irazú (BATSU-CS1), el primer satélite costarricense." },
+  { day: 3, title: "Tech Playground", s: "9:30", e: "11:00", c: "pink", link: "", ic: "game",
+    place: "Edificio de Generales",
+    desc: "A) Fotosíntesis visible: experimento con discos de hojas bajo distintas condiciones de luz. B) Extracción de ADN de fresa. C) Science Escape Room: resolvé retos de ciencia, ingeniería y lógica en equipo antes de que se acabe el tiempo." },
+  { day: 4, title: "Gira: CENAT", s: "9:00", e: "10:00", c: "blue", link: "", ic: "map",
+    place: "Laboratorio CNCA-CeNAT",
+    desc: "Visita al laboratorio CNCA-CeNAT, atendida por el investigador Fabricio Quirós y el técnico de infraestructura Edward Soto, quienes explicarán sobre KABRE." }
 ];
 var ICS = ['chat', 'gear', 'bulb', 'apple', 'users', 'dish', 'game', 'map'];
 function mins(t) { var p = t.split(':'); return +p[0] * 60 + +p[1]; }
@@ -220,14 +239,14 @@ var PX = 80 / 60, START = 540;
 var EV = EVENTS.map(function (ev, i) {
   var D = DAYS[ev.day];
   return Object.assign({}, ev, { i: i, D: D, color: COLORS[ev.c], time: fmt(ev.s) + ' – ' + fmt(ev.e),
-    gcal: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(ev.title + ' · Semana U IEEE UNA') + '&dates=' + utc(D.d, ev.s) + '/' + utc(D.d, ev.e) + '&details=' + encodeURIComponent('Semana Universitaria IEEE UNA · ' + D.name + ' ' + D.theme) });
+    gcal: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(ev.title + ' · Semana U IEEE UNA') + '&dates=' + utc(D.d, ev.s) + '/' + utc(D.d, ev.e) + '&location=' + encodeURIComponent(ev.place) + '&details=' + encodeURIComponent(ev.desc + ' · ' + 'Semana Universitaria IEEE UNA · ' + D.name + ' ' + D.theme) });
 });
 function icon(k) { return '<img src="assets/el/' + k + '.png" alt="">'; }
 function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
 function card(e, cls, style) {
   return '<button type="button" class="' + cls + '" data-i="' + e.i + '" aria-label="' + esc(e.title + ', ' + e.D.name + ' ' + e.time) + '" style="' + style + 'background:' + e.color + '"><span>' + esc(e.title) + '<span style="display:block;font-size:11px;font-weight:700;opacity:.9;margin-top:3px">' + e.time + '</span></span><span class="ic">' + icon(e.ic) + '</span></button>';
 }
-document.getElementById('hours').innerHTML = [9, 10, 11, 12, 13, 14, 15].map(function (h) {
+document.getElementById('hours').innerHTML = [9, 10, 11, 12, 13, 14, 15, 16].map(function (h) {
   return '<div style="top:' + (h - 9) * 80 + 'px">' + (h % 12 || 12) + ':00 ' + (h >= 12 ? 'PM' : 'AM') + '<i></i></div>';
 }).join('');
 var tl = document.getElementById('timeline');
@@ -260,6 +279,8 @@ function openEv(i) {
   document.getElementById('d-title').textContent = e.title;
   document.getElementById('d-ic').innerHTML = icon(e.ic);
   document.getElementById('d-date').textContent = e.D.date;
+  document.getElementById('d-place').textContent = e.place;
+  document.getElementById('d-desc').textContent = e.desc;
   document.getElementById('d-time').textContent = e.time;
   document.getElementById('d-gcal').href = e.gcal;
   var reg = document.getElementById('d-reg'), soon = document.getElementById('d-soon');
