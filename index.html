@@ -40,7 +40,6 @@ header{display:flex;flex-direction:column;align-items:center;gap:10px;text-align
 h1{margin:0;font-size:clamp(26px,5vw,60px);font-weight:700;color:#fff;line-height:1.05;text-shadow:0 4px 0 #04122b}
 .sub{display:flex;align-items:center;gap:16px}.sub span{width:72px;height:3px;background:#2fc6ff}
 .sub p{margin:0;font-size:clamp(14px,2vw,22px);color:#cfe9ff}
-#countdown{margin:4px 0 0;font-size:15px;font-weight:800;color:#ffd23f}
 .tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
 .tabs button{padding:0 16px;border-radius:8px;font-size:13px;border:2px solid #1d4b8f;background:#0d2c5e;color:#eaf6ff}
 .tabs button[aria-pressed=true]{background:#ffd23f;border-color:#ffd23f;color:#081f45}
@@ -81,7 +80,6 @@ dt{font-weight:800;color:#a9cdee}dd{margin:0;font-weight:800}
 <header>
 <h1 class="pix">Agenda · Semana Universitaria</h1>
 <div class="sub"><span></span><p class="pix">IEEE UNA · 5–9 oct. 2026</p><span></span></div>
-<p id="countdown"></p>
 </header>
 <nav class="tabs" id="tabs" aria-label="Filtrar por día"></nav>
 <section class="timeline" id="timeline" aria-label="Horario semanal"><div><div class="hours" id="hours"></div></div></section>
@@ -179,8 +177,6 @@ document.addEventListener('click', function (ev) {
 });
 document.getElementById('d-close').onclick = function () { dlg.close(); };
 dlg.addEventListener('click', function (ev) { if (ev.target === dlg) dlg.close(); });
-var ms = new Date('2026-10-05T09:00:00-06:00').getTime() - Date.now(), dd = Math.ceil(ms / 86400000);
-document.getElementById('countdown').textContent = ms > 0 ? (dd <= 1 ? '¡Arranca mañana!' : 'Faltan ' + dd + ' días · ¡nos vemos!') : (Date.now() < new Date('2026-10-10T00:00:00-06:00').getTime() ? '¡La Semana U está en curso!' : '¡Gracias por participar!');
 render();
 </script>
 </body>
