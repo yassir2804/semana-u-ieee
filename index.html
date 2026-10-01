@@ -18,10 +18,12 @@ a{color:#7fd6ff}a:hover{color:#ffffff}
 .tabs button{cursor:pointer;min-height:44px}
 .tabs button:hover{border-color:#ffd23f}
 .tabs button:focus-visible,.ev:focus-visible,.lev:focus-visible,.btn:focus-visible{outline:3px solid #ffd23f;outline-offset:3px}
-.colbody{position:relative;height:480px;background-image:repeating-linear-gradient(to bottom,rgba(127,214,255,.18) 0 1px,transparent 1px 80px);background-position:0 0}
+.colbody{position:relative;height:33rem;background-image:repeating-linear-gradient(to bottom,rgba(127,214,255,.18) 0 1px,transparent 1px 5.5rem);background-position:0 0}
 .col{transition:opacity .25s}
 .col.dim{opacity:.28}
-.ev{position:absolute;left:10px;right:10px;border:0;border-radius:10px;color:#fff;text-align:left;cursor:pointer;padding:10px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;box-shadow:0 4px 0 rgba(0,0,0,.35);font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;line-height:1.15;transition:transform .15s,box-shadow .15s}
+.ev{position:absolute;left:.5rem;right:.5rem;min-width:0;overflow-wrap:anywhere;hyphens:auto;border:0;border-radius:10px;color:#fff;text-align:left;cursor:pointer;padding:.55rem .65rem;display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;box-shadow:0 4px 0 rgba(0,0,0,.35);font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(.82rem,1.05vw,1rem);line-height:1.15;transition:transform .15s,box-shadow .15s}
+.ev:hover,.ev:focus-visible{z-index:2}
+.ev .ic svg{width:1.4rem;height:1.4rem}
 .ev:hover{transform:translateY(-3px);box-shadow:0 7px 0 rgba(0,0,0,.35)}
 .ev .t{display:block;font-size:12px;font-weight:700;opacity:.9;margin-top:4px}
 .list{display:none}
@@ -31,7 +33,7 @@ a{color:#7fd6ff}a:hover{color:#ffffff}
 @keyframes bob{50%{transform:translateY(-8px)}}
 .twinkle{animation:tw 1.8s ease-in-out infinite}
 @keyframes tw{50%{opacity:.25}}
-@media (max-width:900px){.timeline{display:none !important}.list{display:flex !important}.mascot-wrap{display:none !important}.twinkle{display:none !important}}
+@media (max-width:1100px){.timeline{display:none !important}.list{display:flex !important}.twinkle{display:none !important}}
 @media (prefers-reduced-motion:reduce){.mascot,.twinkle{animation:none}.ev{transition:none}}
 
 .wrap{min-height:100vh;background:#081f45;color:#eaf6ff;font-family:'Nunito',sans-serif;position:relative;overflow:hidden;padding:32px 16px 64px;box-sizing:border-box}
@@ -44,19 +46,21 @@ h1{margin:0;font-size:clamp(26px,5vw,60px);font-weight:700;color:#fff;line-heigh
 .tabs button{padding:0 16px;border-radius:8px;font-size:13px;border:2px solid #1d4b8f;background:#0d2c5e;color:#eaf6ff}
 .tabs button[aria-pressed=true]{background:#ffd23f;border-color:#ffd23f;color:#081f45}
 .timeline{display:grid;grid-template-columns:84px repeat(5,minmax(0,1fr));gap:12px}
-.hours{position:relative;height:480px;border-right:3px solid #2fc6ff;margin-right:6px;margin-top:80px}
-.hours div{position:absolute;right:-10px;transform:translateY(-50%);display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;white-space:nowrap}
+.hours{position:relative;height:33rem;border-right:3px solid #2fc6ff;margin-right:6px;margin-top:calc(5.5rem + 4px)}
+.hours div{position:absolute;right:-10px;transform:translateY(-50%);display:flex;align-items:center;gap:8px;font-size:.8rem;font-weight:800;white-space:nowrap}
 .hours i{width:11px;height:11px;border-radius:50%;background:#2fc6ff;display:inline-block}
 .col{background:#0d2c5e;border:2px solid #1d4b8f;border-radius:12px;overflow:hidden}
-.colhead{height:76px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border-bottom:2px solid #1d4b8f}
-.colhead h2{margin:0;font-size:14px;font-weight:700;color:#fff;text-align:center}
+.colhead{height:5.5rem;box-sizing:border-box;padding:0 .4rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;border-bottom:2px solid #1d4b8f}
+.colhead h2{margin:0;font-size:clamp(.72rem,1vw,.9rem);font-weight:700;color:#fff;text-align:center;line-height:1.25}
+.colhead h2 span{display:block;color:#a9cdee;font-weight:400}
 .bar{width:56px;height:4px;border-radius:2px}
 .list{flex-direction:column;gap:20px}.lday{display:flex;flex-direction:column;gap:10px}
 .lday h2{margin:0;font-size:15px;color:#fff;display:flex;align-items:center;gap:10px}
 .lday h2 small{font-family:'Nunito',sans-serif;font-size:13px;color:#a9cdee}
 .ic{flex-shrink:0;display:flex}
-.hint{margin:0;text-align:center;font-size:14px;color:#a9cdee}
-.mascot-wrap{position:absolute;right:8px;bottom:0;width:230px;pointer-events:none}
+.hint{margin:0;font-size:.9rem;color:#a9cdee;text-align:center}
+.foot{display:flex;align-items:flex-end;justify-content:center;gap:1.5rem}
+.mascot-wrap{width:clamp(110px,12vw,170px);flex-shrink:0;pointer-events:none}
 .star{position:absolute}
 dialog{border:3px solid;border-radius:14px;padding:0;width:min(460px,calc(100% - 32px));background:#0d2c5e;color:#eaf6ff;box-shadow:0 8px 0 rgba(0,0,0,.4);font-family:'Nunito',sans-serif}
 dialog::backdrop{background:rgba(3,12,30,.72)}
@@ -67,7 +71,8 @@ dialog::backdrop{background:rgba(3,12,30,.72)}
 dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 16px;font-size:15px}
 dt{font-weight:800;color:#a9cdee}dd{margin:0;font-weight:800}
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
-@media (max-width:900px){.timeline{display:none}.list{display:flex}.mascot-wrap,.star{display:none}}
+@media (max-width:1400px){.star{display:none}}
+@media (max-width:1100px){.timeline{display:none}.list{display:flex}.star{display:none}.foot{flex-direction:column;align-items:center}}
 </style>
 </head>
 <body>
@@ -84,9 +89,8 @@ dt{font-weight:800;color:#a9cdee}dd{margin:0;font-weight:800}
 <nav class="tabs" id="tabs" aria-label="Filtrar por día"></nav>
 <section class="timeline" id="timeline" aria-label="Horario semanal"><div><div class="hours" id="hours"></div></div></section>
 <section class="list" id="list" aria-label="Horario por día"></section>
-<p class="hint">Tocá cualquier actividad para ver detalles y agregarla a tu calendario.</p>
+<div class="foot"><p class="hint">Tocá cualquier actividad para ver detalles y agregarla a tu calendario.</p><div class="mascot-wrap"><img class="mascot" src="assets/mapache.png" alt="Mascota mapache de la UNA" style="width:100%;display:block"></div></div>
 </main>
-<div class="mascot-wrap"><img class="mascot" src="assets/mapache.png" alt="Mascota mapache de la UNA" style="width:100%;display:block"></div>
 </div>
 <dialog id="dlg" aria-labelledby="d-title">
 <div class="dhead" id="d-head"><div><span class="pix" id="d-day" style="font-size:12px"></span><h3 id="d-title"></h3></div><span class="ic" id="d-ic"></span></div>
@@ -120,12 +124,12 @@ var EVENTS = [
 ];
 var ICS = ['chat', 'gear', 'bulb', 'apple', 'users', 'dish', 'game', 'map'];
 function mins(t) { var p = t.split(':'); return +p[0] * 60 + +p[1]; }
-function fmt(t) { var m = mins(t), h = Math.floor(m / 60), mm = m % 60, ap = h >= 12 ? 'PM' : 'AM', h12 = h % 12 || 12; return h12 + ':' + (mm < 10 ? '0' : '') + mm + ' ' + ap; }
+function fmt(t) { var m = mins(t), h = Math.floor(m / 60), mm = m % 60, ap = h >= 12 ? 'PM' : 'AM', h12 = h % 12 || 12; return h12 + ':' + (mm < 10 ? '0' : '') + mm + '\u00a0' + ap; }
 function utc(d, t) { var m = mins(t) + 360, h = Math.floor(m / 60), mm = m % 60; return '202610' + (d < 10 ? '0' : '') + d + 'T' + (h < 10 ? '0' : '') + h + (mm < 10 ? '0' : '') + mm + '00Z'; }
 var ICON_SVG = {"chat": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 5h16v11H9l-5 4z\"></path><path d=\"M9 10.5h.01M12 10.5h.01M15 10.5h.01\"></path></svg>", "gear": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1\"></path></svg>", "bulb": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6M10 21h4\"></path><path d=\"M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.6 1 2.5h6c0-.9.2-1.7 1-2.5A6 6 0 0 0 12 3z\"></path></svg>", "apple": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 7c-2-1.5-7-1-7 5 0 4 3 9 5 9 1 0 1.3-.5 2-.5s1 .5 2 .5c2 0 5-5 5-9 0-6-5-6.5-7-5z\"></path><path d=\"M12 7c0-2 1-4 3-4\"></path></svg>", "users": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"9\" cy=\"8\" r=\"3\"></circle><path d=\"M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6\"></path><circle cx=\"17\" cy=\"9\" r=\"2.5\"></circle><path d=\"M16 14.2c2.9.4 5 2.8 5 5.8\"></path></svg>", "dish": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 9a9 9 0 0 0 10 10z\"></path><path d=\"M10 14l3-3\"></path><path d=\"M15 5a4 4 0 0 1 4 4M15 1.5a7.5 7.5 0 0 1 7.5 7.5\"></path></svg>", "game": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10a5 5 0 0 1 5 5v1a3.5 3.5 0 0 1-6.3 2.1L14.5 14h-5l-1.2 1.1A3.5 3.5 0 0 1 2 13v-1a5 5 0 0 1 5-5z\"></path><path d=\"M7 10v3M5.5 11.5h3M16 11h.01M18 12.5h.01\"></path></svg>", "map": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z\"></path><path d=\"M9 3v15M15 6v15\"></path></svg>"};
 
 var state = { day: -1 };
-var PX = 80 / 60, START = 540;
+var START = 540;
 var EV = EVENTS.map(function (ev, i) {
   var D = DAYS[ev.day];
   return Object.assign({}, ev, { i: i, D: D, color: COLORS[ev.c], time: fmt(ev.s) + ' – ' + fmt(ev.e),
@@ -133,18 +137,18 @@ var EV = EVENTS.map(function (ev, i) {
 });
 function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
 function card(e, cls, style) {
-  return '<button type="button" class="' + cls + '" data-i="' + e.i + '" aria-label="' + esc(e.title + ', ' + e.D.name + ' ' + e.time) + '" style="' + style + 'background:' + e.color + '"><span>' + esc(e.title) + '<span style="display:block;font-size:12px;font-weight:700;opacity:.9;margin-top:4px">' + e.time + '</span></span><span class="ic">' + ICON_SVG[e.ic] + '</span></button>';
+  return '<button type="button" class="' + cls + '" data-i="' + e.i + '" aria-label="' + esc(e.title + ', ' + e.D.name + ' ' + e.time) + '" style="' + style + 'background:' + e.color + '"><span>' + esc(e.title) + '<span style="display:block;font-size:.78em;font-weight:700;opacity:.9;margin-top:.25rem">' + e.time + '</span></span><span class="ic">' + ICON_SVG[e.ic] + '</span></button>';
 }
 document.getElementById('hours').innerHTML = [9, 10, 11, 12, 13, 14, 15].map(function (h) {
-  return '<div style="top:' + (h - 9) * 80 + 'px">' + (h % 12 || 12) + ':00 ' + (h >= 12 ? 'PM' : 'AM') + '<i></i></div>';
+  return '<div style="top:' + (h - 9) * 5.5 + 'rem">' + (h % 12 || 12) + ':00 ' + (h >= 12 ? 'PM' : 'AM') + '<i></i></div>';
 }).join('');
 var tl = document.getElementById('timeline');
 DAYS.forEach(function (D, di) {
   var col = document.createElement('div'); col.className = 'col'; col.dataset.day = di;
-  col.innerHTML = '<div class="colhead"><h2 class="pix">' + D.name + ' · ' + D.theme + '</h2><span class="bar" style="background:' + D.accent + '"></span></div><div class="colbody">' +
+  col.innerHTML = '<div class="colhead"><h2 class="pix">' + D.name + '<span>' + D.theme + '</span></h2><span class="bar" style="background:' + D.accent + '"></span></div><div class="colbody">' +
     EV.filter(function (e) { return e.day === di; }).map(function (e) {
-      var top = Math.round((mins(e.s) - START) * PX) + 6, h = Math.max(64, Math.round((mins(e.e) - mins(e.s)) * PX) - 6);
-      return card(e, 'ev', 'top:' + top + 'px;height:' + h + 'px;');
+      var top = (mins(e.s) - START) / 60 * 5.5 + .35, h = Math.max(4.2, (mins(e.e) - mins(e.s)) / 60 * 5.5 - .7);
+      return card(e, 'ev', 'top:' + top.toFixed(2) + 'rem;min-height:' + h.toFixed(2) + 'rem;');
     }).join('') + '</div>';
   tl.appendChild(col);
 });
