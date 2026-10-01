@@ -100,7 +100,7 @@ h1{font-size:clamp(18px,5.2vw,48px);text-shadow:0 clamp(2px,.5vw,4px) 0 #04122b}
 .tabs button{font-size:clamp(10px,2.6vw,14px);padding:0 clamp(8px,2.6vw,16px);min-height:clamp(34px,9vw,44px);flex-shrink:0}
 .list{gap:clamp(12px,3.6vw,22px)}.lday{gap:clamp(6px,2vw,10px)}
 .lday h2{font-size:clamp(11px,2.8vw,15px);flex-wrap:wrap;gap:4px 8px}
-.lday h2 .acc{width:clamp(10px,2.6vw,14px)!important;height:clamp(10px,2.6vw,14px)!important}
+.lday h2 span{width:clamp(10px,2.6vw,14px)!important;height:clamp(10px,2.6vw,14px)!important}
 .lday h2 small{font-size:clamp(11px,2.8vw,13px);text-transform:none;width:100%;padding-left:calc(clamp(10px,2.6vw,14px) + 8px)}
 .lev{font-size:clamp(13px,3.6vw,18px);padding:clamp(8px,2.4vw,14px) clamp(10px,3vw,16px);min-height:clamp(46px,12vw,62px);gap:clamp(8px,2.5vw,12px);border-radius:clamp(8px,2vw,10px);box-shadow:0 3px 0 rgba(0,0,0,.35)}
 .lev span span{font-size:clamp(11px,2.8vw,13px)!important;margin-top:2px!important}
@@ -122,22 +122,12 @@ dl{font-size:clamp(13px,3.4vw,15px);gap:4px 12px}
 .list.single{grid-template-columns:minmax(0,1fr)}
 .lday{background:#0d2c5e;border:2px solid #1d4b8f;border-radius:clamp(8px,2.4vw,12px);padding:clamp(8px,2.4vw,12px);gap:clamp(6px,1.8vw,10px) !important}
 .lday h2{flex-direction:column;align-items:center;text-align:center;gap:4px !important;padding-bottom:clamp(6px,1.8vw,10px);border-bottom:2px solid #1d4b8f;margin-bottom:2px !important}
-.lday h2 .acc{order:3;width:clamp(28px,9vw,56px) !important;height:4px !important;border-radius:2px}
+.lday h2 span{order:3;width:clamp(28px,9vw,56px) !important;height:4px !important;border-radius:2px}
 .lday h2 small{width:auto !important;padding-left:0 !important;order:2}
 .lev{font-size:clamp(12px,3.4vw,16px) !important;padding:clamp(7px,2vw,12px) clamp(8px,2.4vw,12px) !important;min-height:0 !important;align-items:flex-start !important;gap:6px !important}
 .lev .ic img{width:clamp(20px,5.6vw,30px) !important;height:clamp(20px,5.6vw,30px) !important}
 }
 @media (min-width:600px) and (max-width:900px){.list{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:900px){
-.list{align-items:stretch !important}
-.lday .dot{display:none}.lday h2 small{white-space:nowrap;font-size:clamp(9px,2.5vw,12px) !important}.lday h2{font-size:clamp(10px,2.8vw,14px) !important;line-height:1.3}
-.lev{flex-direction:column !important;align-items:center !important;justify-content:center !important;text-align:center !important;gap:clamp(4px,1.2vw,8px) !important;min-height:clamp(100px,28vw,124px) !important;line-height:1.2 !important}
-.lev>span:first-child{display:flex;flex-direction:column;align-items:center;gap:3px}
-.lev span span{white-space:nowrap;font-size:clamp(10px,2.7vw,13px) !important;margin-top:0 !important}
-.lev .ic,.lev>img{order:-1}
-}
-@media (max-width:599px){.list:not(.single) .lday:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc((100% - clamp(8px,2.6vw,14px)) / 2)}}
-@media (min-width:600px) and (max-width:900px){.list:not(.single){grid-template-columns:repeat(6,minmax(0,1fr)) !important}.list:not(.single) .lday{grid-column:span 2}.list:not(.single) .lday:nth-child(4){grid-column:2/4}.list:not(.single) .lday:nth-child(5){grid-column:4/6}.lday h2 small{font-size:clamp(9px,1.55vw,12px) !important}}
 </style>
 </head>
 <body>
@@ -225,7 +215,7 @@ function render() {
   document.getElementById('list').classList.toggle('single', state.day >= 0);
   document.getElementById('list').innerHTML = DAYS.map(function (D, di) {
     if (state.day >= 0 && state.day !== di) return '';
-    return '<div class="lday"><h2 class="pix"><span class="acc" style="width:14px;height:14px;background:' + D.accent + '"></span>' + D.name + '<span class="dot"> · </span><span class="th">' + D.theme + '</span> <small>' + D.date + '</small></h2>' +
+    return '<div class="lday"><h2 class="pix"><span style="width:14px;height:14px;background:' + D.accent + '"></span>' + D.name + ' · ' + D.theme + ' <small>' + D.date + '</small></h2>' +
       EV.filter(function (e) { return e.day === di; }).map(function (e) { return card(e, 'lev', ''); }).join('') + '</div>';
   }).join('');
 }
