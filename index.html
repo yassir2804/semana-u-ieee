@@ -34,6 +34,7 @@ a{color:#7fd6ff}a:hover{color:#ffffff}
 @keyframes bob{50%{transform:translateY(-8px)}}
 .twinkle{animation:tw 1.8s ease-in-out infinite}
 @keyframes tw{50%{opacity:.25}}
+@media (max-width:900px){.timeline{display:none !important}.list{display:flex !important}}
 @media (max-width:900px){
 .wrap,.root{padding-bottom:clamp(70px,18vw,150px) !important}
 header{padding:0 clamp(40px,12vw,110px) !important}
@@ -87,17 +88,7 @@ dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;f
 .soon{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:8px;border:2px dashed #7fd6ff;color:#cfe9ff;font-weight:800;font-size:13px}
 dt{font-weight:800;color:#a9cdee}dd{margin:0;font-weight:800}
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
-@media (max-width:900px){
-.timeline{position:relative;grid-template-columns:clamp(58px,15vw,84px) repeat(5,minmax(clamp(132px,36vw,220px),1fr));gap:clamp(6px,2vw,12px);overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-left:calc(clamp(58px,15vw,84px) + clamp(6px,2vw,12px));padding-bottom:8px;scrollbar-width:thin;scrollbar-color:#2fc6ff #0d2c5e}
-.timeline>div:first-child{position:sticky;left:0;z-index:3;background:#081f45;box-shadow:6px 0 8px -4px #081f45}
-.timeline .col{scroll-snap-align:start}
-.hours div{font-size:clamp(10px,2.8vw,13px);gap:5px}
-.hours i{width:9px;height:9px}
-.colhead{height:76px;padding:0 6px}
-.colhead h2{font-size:clamp(10px,2.8vw,14px)}
-.ev{left:6px;right:6px;padding:8px 9px;font-size:clamp(12px,3.3vw,15px)}
-.ev .ic img{width:clamp(22px,6vw,30px);height:clamp(22px,6vw,30px)}
-}
+@media (max-width:900px){.timeline{display:none}.list{display:flex}}
 @media (max-width:1100px){
 .wrap{padding:clamp(18px,5vw,32px) clamp(18px,5.5vw,48px) 40px}
 .inner{gap:clamp(14px,4vw,24px)}
@@ -216,12 +207,6 @@ function render() {
       EV.filter(function (e) { return e.day === di; }).map(function (e) { return card(e, 'lev', ''); }).join('') + '</div>';
   }).join('');
 }
-function scrollToDay(i) {
-  if (tl.scrollWidth <= tl.clientWidth + 1) return;
-  if (i < 0) { tl.scrollTo({ left: 0, behavior: 'smooth' }); return; }
-  var col = tl.querySelector('.col[data-day="' + i + '"]'), hrs = tl.firstElementChild;
-  tl.scrollTo({ left: col.offsetLeft - hrs.offsetWidth - parseFloat(getComputedStyle(tl).columnGap), behavior: 'smooth' });
-}
 var dlg = document.getElementById('dlg');
 function openEv(i) {
   var e = EV[i];
@@ -238,7 +223,7 @@ function openEv(i) {
 }
 document.addEventListener('click', function (ev) {
   var t = ev.target.closest('[data-i]'); if (t) return openEv(+t.dataset.i);
-  var d = ev.target.closest('.tabs [data-day]'); if (d) { state.day = +d.dataset.day; render(); scrollToDay(state.day); var b = document.querySelector('.tabs [data-day="' + state.day + '"]'); if (b) b.focus(); }
+  var d = ev.target.closest('.tabs [data-day]'); if (d) { state.day = +d.dataset.day; render(); var b = document.querySelector('.tabs [data-day="' + state.day + '"]'); if (b) b.focus(); }
 });
 document.getElementById('d-close').onclick = function () { dlg.close(); };
 dlg.addEventListener('click', function (ev) { if (ev.target === dlg) dlg.close(); });
