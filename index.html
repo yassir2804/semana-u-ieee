@@ -21,12 +21,14 @@ a{color:#7fd6ff}a:hover{color:#ffffff}
 .colbody{position:relative;height:480px;background-image:repeating-linear-gradient(to bottom,rgba(127,214,255,.18) 0 1px,transparent 1px 80px);background-position:0 0}
 .col{transition:opacity .25s}
 .col.dim{opacity:.28}
-.ev{position:absolute;left:10px;right:10px;border:0;border-radius:10px;color:#fff;text-align:left;cursor:pointer;padding:10px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;box-shadow:0 4px 0 rgba(0,0,0,.35);font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;line-height:1.15;transition:transform .15s,box-shadow .15s}
+.ev{position:absolute;left:10px;right:10px;border:0;border-radius:10px;color:#fff;text-align:left;cursor:pointer;padding:10px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;box-shadow:0 4px 0 rgba(0,0,0,.35);font-family:'Nunito',sans-serif;font-weight:900;font-size:14px;line-height:1.15;overflow-wrap:anywhere;transition:transform .15s,box-shadow .15s}
+[hidden]{display:none !important}
+.ev:hover,.ev:focus-visible{z-index:2}
 .ev:hover{transform:translateY(-3px);box-shadow:0 7px 0 rgba(0,0,0,.35)}
 .ev .t{display:block;font-size:12px;font-weight:700;opacity:.9;margin-top:4px}
 .list{display:none}
 .lev{width:100%;border:0;border-radius:10px;color:#fff;text-align:left;cursor:pointer;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;min-height:56px;box-shadow:0 4px 0 rgba(0,0,0,.35)}
-.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:8px;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;text-decoration:none;cursor:pointer;border:2px solid #7fd6ff}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:8px;font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;text-decoration:none;cursor:pointer;border:2px solid #7fd6ff}
 .mascot{image-rendering:pixelated;animation:bob 2.4s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-8px)}}
 .twinkle{animation:tw 1.8s ease-in-out infinite}
@@ -59,16 +61,17 @@ h1{margin:0;font-size:clamp(26px,5vw,60px);font-weight:700;color:#fff;line-heigh
 .mascot-wrap{position:absolute;right:8px;bottom:0;width:230px;pointer-events:none;z-index:2}
 .inner{z-index:1}
 .star{pointer-events:none;z-index:0}
-.ic img{width:36px;height:36px;object-fit:contain;display:block}
-.dhead .ic img{width:48px;height:48px}
+.ic img{width:30px;height:30px;object-fit:contain;display:block}
+.dhead .ic img{width:40px;height:40px}
 .star{position:absolute}
 dialog{border:3px solid;border-radius:14px;padding:0;width:min(460px,calc(100% - 32px));background:#0d2c5e;color:#eaf6ff;box-shadow:0 8px 0 rgba(0,0,0,.4);font-family:'Nunito',sans-serif}
 dialog::backdrop{background:rgba(3,12,30,.72)}
 .dhead{color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.dhead h3{margin:4px 0 0;font-size:24px;font-weight:900;line-height:1.1}
+.dhead h3{margin:4px 0 0;font-size:19px;font-weight:900;line-height:1.1}
 .dhead .ic svg{width:36px;height:36px}
 .dbody{padding:20px;display:flex;flex-direction:column;gap:14px}
-dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 16px;font-size:15px}
+dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;font-size:14px}
+.soon{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:8px;border:2px dashed #7fd6ff;color:#cfe9ff;font-weight:800;font-size:13px}
 dt{font-weight:800;color:#a9cdee}dd{margin:0;font-weight:800}
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
 @media (max-width:900px){.timeline{display:none}.list{display:flex}.mascot-wrap,.star{display:none}}
@@ -87,13 +90,15 @@ dt{font-weight:800;color:#a9cdee}dd{margin:0;font-weight:800}
 <section class="list" id="list" aria-label="Horario por día"></section>
 <p class="hint">Tocá cualquier actividad para ver detalles y agregarla a tu calendario.</p>
 </main>
-<div class="mascot-wrap"><img class="twinkle" src="assets/el/sparks.png" alt="" style="position:absolute;left:-22px;top:48px;width:52px"><img class="mascot" src="assets/mapache.png" alt="Mascota mapache de la UNA" style="width:100%;display:block"></div>
+<div class="mascot-wrap"><img class="mascot" src="assets/mapache.png" alt="Mascota mapache de la UNA" style="width:100%;display:block"></div>
 </div>
 <dialog id="dlg" aria-labelledby="d-title">
 <div class="dhead" id="d-head"><div><span class="pix" id="d-day" style="font-size:12px"></span><h3 id="d-title"></h3></div><span class="ic" id="d-ic"></span></div>
 <div class="dbody">
 <dl><dt>Fecha</dt><dd id="d-date"></dd><dt>Hora</dt><dd id="d-time"></dd><dt>Lugar</dt><dd id="d-place">[Lugar por confirmar]</dd></dl>
 <div class="actions">
+<a class="btn" id="d-reg" target="_blank" rel="noopener" style="background:#2fc6ff;border-color:#2fc6ff;color:#081f45">Inscribirme</a>
+<span class="soon" id="d-soon">Inscripción: link próximamente</span>
 <a class="btn" id="d-gcal" target="_blank" rel="noopener" style="background:#ffd23f;border-color:#ffd23f;color:#081f45">Agregar a Google Calendar</a>
 <button type="button" class="btn" id="d-close" style="background:transparent;color:#eaf6ff">Cerrar</button>
 </div>
@@ -109,15 +114,15 @@ var DAYS = [
 ];
 var COLORS = { blue: '#0a74a6', green: '#4a8320', orange: '#b25a00', pink: '#b0195a' };
 var EVENTS = [
-  { day: 0, title: 'Stand informativo', s: '10:30', e: '11:45', c: 'blue', ic: 'chat' },
-  { day: 0, title: 'Stand informativo', s: '14:00', e: '15:00', c: 'blue', ic: 'chat' },
-  { day: 1, title: 'Engineering a Better Tomorrow', s: '9:30', e: '10:35', c: 'green', ic: 'gear' },
-  { day: 1, title: 'Better Tomorrow Experience', s: '11:00', e: '12:15', c: 'green', ic: 'bulb' },
-  { day: 1, title: 'IEEE Day Celebration & Community Lunch', s: '13:00', e: '14:15', c: 'green', ic: 'apple' },
-  { day: 2, title: 'Stand Chapters', s: '9:00', e: '10:00', c: 'orange', ic: 'users' },
-  { day: 2, title: 'Chapter AESS', s: '10:45', e: '11:45', c: 'orange', ic: 'dish' },
-  { day: 3, title: 'Tech Playground', s: '10:30', e: '11:45', c: 'pink', ic: 'game' },
-  { day: 4, title: 'Gira: CENAT', s: '9:30', e: '10:45', c: 'blue', ic: 'map' }
+  { day: 0, title: 'Stand informativo', s: '10:30', e: '11:45', c: 'blue', link: '', ic: 'chat' },
+  { day: 0, title: 'Stand informativo', s: '14:00', e: '15:00', c: 'blue', link: '', ic: 'chat' },
+  { day: 1, title: 'Engineering a Better Tomorrow', s: '9:30', e: '10:35', c: 'green', link: '', ic: 'gear' },
+  { day: 1, title: 'Better Tomorrow Experience', s: '11:00', e: '12:15', c: 'green', link: '', ic: 'bulb' },
+  { day: 1, title: 'IEEE Day Celebration & Community Lunch', s: '13:00', e: '14:15', c: 'green', link: '', ic: 'apple' },
+  { day: 2, title: 'Stand Chapters', s: '9:00', e: '10:00', c: 'orange', link: '', ic: 'users' },
+  { day: 2, title: 'Chapter AESS', s: '10:45', e: '11:45', c: 'orange', link: '', ic: 'rocket' },
+  { day: 3, title: 'Tech Playground', s: '10:30', e: '11:45', c: 'pink', link: '', ic: 'game' },
+  { day: 4, title: 'Gira: CENAT', s: '9:30', e: '10:45', c: 'blue', link: '', ic: 'map' }
 ];
 var ICS = ['chat', 'gear', 'bulb', 'apple', 'users', 'dish', 'game', 'map'];
 function mins(t) { var p = t.split(':'); return +p[0] * 60 + +p[1]; }
@@ -134,7 +139,7 @@ var EV = EVENTS.map(function (ev, i) {
 function icon(k) { return '<img src="assets/el/' + k + '.png" alt="">'; }
 function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
 function card(e, cls, style) {
-  return '<button type="button" class="' + cls + '" data-i="' + e.i + '" aria-label="' + esc(e.title + ', ' + e.D.name + ' ' + e.time) + '" style="' + style + 'background:' + e.color + '"><span>' + esc(e.title) + '<span style="display:block;font-size:12px;font-weight:700;opacity:.9;margin-top:4px">' + e.time + '</span></span><span class="ic">' + icon(e.ic) + '</span></button>';
+  return '<button type="button" class="' + cls + '" data-i="' + e.i + '" aria-label="' + esc(e.title + ', ' + e.D.name + ' ' + e.time) + '" style="' + style + 'background:' + e.color + '"><span>' + esc(e.title) + '<span style="display:block;font-size:11px;font-weight:700;opacity:.9;margin-top:3px">' + e.time + '</span></span><span class="ic">' + icon(e.ic) + '</span></button>';
 }
 document.getElementById('hours').innerHTML = [9, 10, 11, 12, 13, 14, 15].map(function (h) {
   return '<div style="top:' + (h - 9) * 80 + 'px">' + (h % 12 || 12) + ':00 ' + (h >= 12 ? 'PM' : 'AM') + '<i></i></div>';
@@ -145,7 +150,7 @@ DAYS.forEach(function (D, di) {
   col.innerHTML = '<div class="colhead"><h2 class="pix">' + D.name + ' · ' + D.theme + '</h2><span class="bar" style="background:' + D.accent + '"></span></div><div class="colbody">' +
     EV.filter(function (e) { return e.day === di; }).map(function (e) {
       var top = Math.round((mins(e.s) - START) * PX) + 6, h = Math.max(64, Math.round((mins(e.e) - mins(e.s)) * PX) - 6);
-      return card(e, 'ev', 'top:' + top + 'px;height:' + h + 'px;');
+      return card(e, 'ev', 'top:' + top + 'px;min-height:' + h + 'px;');
     }).join('') + '</div>';
   tl.appendChild(col);
 });
@@ -170,6 +175,8 @@ function openEv(i) {
   document.getElementById('d-date').textContent = e.D.date;
   document.getElementById('d-time').textContent = e.time;
   document.getElementById('d-gcal').href = e.gcal;
+  var reg = document.getElementById('d-reg'), soon = document.getElementById('d-soon');
+  reg.hidden = !e.link; soon.hidden = !!e.link; if (e.link) reg.href = e.link;
   dlg.showModal();
 }
 document.addEventListener('click', function (ev) {
