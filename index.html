@@ -18,11 +18,13 @@ a{color:#7fd6ff}a:hover{color:#ffffff}
 .tabs button{cursor:pointer;min-height:44px}
 .tabs button:hover{border-color:#ffd23f}
 .tabs button:focus-visible,.ev:focus-visible,.lev:focus-visible,.btn:focus-visible{outline:3px solid #ffd23f;outline-offset:3px}
-.colbody{position:relative;height:560px;background-image:repeating-linear-gradient(to bottom,rgba(127,214,255,.18) 0 1px,transparent 1px 80px);background-position:0 0}
+.colbody{position:relative;height:700px;background-image:repeating-linear-gradient(to bottom,rgba(127,214,255,.18) 0 1px,transparent 1px 100px);background-position:0 0}
 .col{transition:opacity .25s}
 .col.dim{opacity:.28}
 .ev{position:absolute;left:10px;right:10px;border:0;border-radius:10px;color:#fff;text-align:left;cursor:pointer;padding:10px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;box-shadow:0 4px 0 rgba(0,0,0,.35);font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(12.5px,1vw,16px);line-height:1.15;overflow-wrap:anywhere;transition:transform .15s,box-shadow .15s}
 [hidden]{display:none !important}
+.ev{overflow:hidden}
+.ev>span:first-child{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
 .wait{display:none}
 .ev:hover,.ev:focus-visible{z-index:2}
 .ev:hover{transform:translateY(-3px);box-shadow:0 7px 0 rgba(0,0,0,.35)}
@@ -34,8 +36,8 @@ a{color:#7fd6ff}a:hover{color:#ffffff}
 @keyframes bob{50%{transform:translateY(-8px)}}
 .twinkle{animation:tw 1.8s ease-in-out infinite}
 @keyframes tw{50%{opacity:.25}}
-@media (max-width:900px){.timeline{display:none !important}.list{display:flex !important}}
-@media (max-width:900px){
+@media (max-width:1250px){.timeline{display:none !important}.list{display:flex !important}}
+@media (max-width:1250px){
 .wrap,.root{padding-bottom:clamp(70px,18vw,150px) !important}
 header{padding:0 clamp(40px,12vw,110px) !important}
 .d-big{width:clamp(38px,11vw,100px) !important;left:1% !important;top:clamp(10px,3vw,26px) !important}
@@ -60,7 +62,7 @@ h1{margin:0;font-size:clamp(26px,5vw,60px);font-weight:700;color:#fff;line-heigh
 .tabs button{padding:0 16px;border-radius:8px;font-size:13px;border:2px solid #1d4b8f;background:#0d2c5e;color:#eaf6ff}
 .tabs button[aria-pressed=true]{background:#ffd23f;border-color:#ffd23f;color:#081f45}
 .timeline{display:grid;grid-template-columns:84px repeat(5,minmax(0,1fr));gap:12px}
-.hours{position:relative;height:560px;border-right:3px solid #2fc6ff;margin-right:6px;margin-top:80px}
+.hours{position:relative;height:700px;border-right:3px solid #2fc6ff;margin-right:6px;margin-top:80px}
 .hours div{position:absolute;right:-10px;transform:translateY(-50%);display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;white-space:nowrap}
 .hours i{width:11px;height:11px;border-radius:50%;background:#2fc6ff;display:inline-block}
 .col{background:#0d2c5e;border:2px solid #1d4b8f;border-radius:12px;overflow:hidden}
@@ -88,8 +90,8 @@ dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;f
 .soon{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:8px;border:2px dashed #7fd6ff;color:#cfe9ff;font-weight:800;font-size:13px}
 dt{font-weight:800;color:#a9cdee}dd{margin:0;font-weight:800}
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
-@media (max-width:900px){.timeline{display:none}.list{display:flex}}
-@media (max-width:1100px){
+@media (max-width:1250px){.timeline{display:none}.list{display:flex}}
+@media (max-width:1250px){
 .wrap{padding:clamp(18px,5vw,32px) clamp(18px,5.5vw,48px) 40px}
 .inner{gap:clamp(14px,4vw,24px)}
 header{gap:clamp(4px,1.5vw,10px)}
@@ -117,7 +119,7 @@ dl{font-size:clamp(13px,3.4vw,15px);gap:4px 12px}
 .btn{font-size:clamp(13px,3.4vw,15px);min-height:clamp(40px,10.5vw,44px);padding:0 clamp(12px,3.6vw,18px)}
 .soon{font-size:clamp(12px,3.1vw,13px);min-height:clamp(40px,10.5vw,44px);padding:0 12px}
 }
-@media (max-width:900px){
+@media (max-width:1250px){
 .list{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(8px,2.6vw,14px);align-items:start}
 .list.single{grid-template-columns:minmax(0,1fr)}
 .lday{background:#0d2c5e;border:2px solid #1d4b8f;border-radius:clamp(8px,2.4vw,12px);padding:clamp(8px,2.4vw,12px);gap:clamp(6px,1.8vw,10px) !important}
@@ -127,15 +129,15 @@ dl{font-size:clamp(13px,3.4vw,15px);gap:4px 12px}
 .lev{font-size:clamp(12px,3.4vw,16px) !important;padding:clamp(7px,2vw,12px) clamp(8px,2.4vw,12px) !important;min-height:0 !important;align-items:flex-start !important;gap:6px !important}
 .lev .ic img{width:clamp(20px,5.6vw,30px) !important;height:clamp(20px,5.6vw,30px) !important}
 }
-@media (min-width:600px) and (max-width:900px){.list{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:900px){
+@media (min-width:600px) and (max-width:1250px){.list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:1250px){
 .list{align-items:stretch !important}
 .lday h2 .dt{display:flex;flex-direction:column;align-items:center;line-height:1.35}
 .lev{align-items:center !important;min-height:clamp(60px,15vw,78px) !important;line-height:1.2 !important}
 }
 @media (max-width:599px){.list:not(.single) .lday:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc((100% - clamp(8px,2.6vw,14px)) / 2)}}
-@media (min-width:600px) and (max-width:900px){.list:not(.single){grid-template-columns:repeat(6,minmax(0,1fr)) !important}.list:not(.single) .lday{grid-column:span 2}.list:not(.single) .lday:nth-child(4){grid-column:2/4}.list:not(.single) .lday:nth-child(5){grid-column:4/6}}
-@media (max-width:900px){.lday h2 small{white-space:nowrap}}
+@media (min-width:600px) and (max-width:1250px){.list:not(.single){grid-template-columns:repeat(6,minmax(0,1fr)) !important}.list:not(.single) .lday{grid-column:span 2}.list:not(.single) .lday:nth-child(4){grid-column:2/4}.list:not(.single) .lday:nth-child(5){grid-column:4/6}}
+@media (max-width:1250px){.lday h2 small{white-space:nowrap}}
 /* Escala tipográfica: cada tipo de texto crece con el ancho de pantalla entre un mínimo y un máximo */
 :root{
 --fs-display:clamp(18px,.5rem + 3.6vw,64px);
@@ -235,7 +237,7 @@ function fmt(t) { var m = mins(t), h = Math.floor(m / 60), mm = m % 60, ap = h >
 function utc(d, t) { var m = mins(t) + 360, h = Math.floor(m / 60), mm = m % 60; return '202610' + (d < 10 ? '0' : '') + d + 'T' + (h < 10 ? '0' : '') + h + (mm < 10 ? '0' : '') + mm + '00Z'; }
 
 var state = { day: -1 };
-var PX = 80 / 60, START = 540;
+var HOUR = 100, GAP = 8, PX = HOUR / 60, START = 540;
 var EV = EVENTS.map(function (ev, i) {
   var D = DAYS[ev.day];
   return Object.assign({}, ev, { i: i, D: D, color: COLORS[ev.c], time: fmt(ev.s) + ' – ' + fmt(ev.e),
@@ -247,15 +249,16 @@ function card(e, cls, style) {
   return '<button type="button" class="' + cls + '" data-i="' + e.i + '" aria-label="' + esc(e.title + ', ' + e.D.name + ' ' + e.time) + '" style="' + style + 'background:' + e.color + '"><span>' + esc(e.title) + '<span style="display:block;font-size:11px;font-weight:700;opacity:.9;margin-top:3px">' + e.time + '</span></span><span class="ic">' + icon(e.ic) + '</span></button>';
 }
 document.getElementById('hours').innerHTML = [9, 10, 11, 12, 13, 14, 15, 16].map(function (h) {
-  return '<div style="top:' + (h - 9) * 80 + 'px">' + (h % 12 || 12) + ':00 ' + (h >= 12 ? 'PM' : 'AM') + '<i></i></div>';
+  return '<div style="top:' + (h - 9) * HOUR + 'px">' + (h % 12 || 12) + ':00 ' + (h >= 12 ? 'PM' : 'AM') + '<i></i></div>';
 }).join('');
 var tl = document.getElementById('timeline');
 DAYS.forEach(function (D, di) {
   var col = document.createElement('div'); col.className = 'col'; col.dataset.day = di;
   col.innerHTML = '<div class="colhead"><h2 class="pix">' + D.name + ' · ' + D.theme + '</h2><span class="bar" style="background:' + D.accent + '"></span></div><div class="colbody">' +
     EV.filter(function (e) { return e.day === di; }).map(function (e) {
-      var top = Math.round((mins(e.s) - START) * PX) + 6, h = Math.max(64, Math.round((mins(e.e) - mins(e.s)) * PX) - 6);
-      return card(e, 'ev', 'top:' + top + 'px;min-height:' + h + 'px;');
+      // cada hora = HOUR px; la tarjeta ocupa su duración exacta menos GAP, así entre actividades seguidas siempre quedan GAP px
+      var top = (mins(e.s) - START) * PX + GAP / 2, h = (mins(e.e) - mins(e.s)) * PX - GAP;
+      return card(e, 'ev', 'top:' + top + 'px;height:' + h + 'px;');
     }).join('') + '</div>';
   tl.appendChild(col);
 });
