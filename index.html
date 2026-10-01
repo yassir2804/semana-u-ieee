@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenda · Semana Universitaria IEEE UNA</title>
+<meta name="description" content="Agenda interactiva de la Semana Universitaria IEEE UNA, 5–9 de octubre 2026.">
+<meta property="og:title" content="Agenda · Semana Universitaria IEEE UNA">
+<meta property="og:description" content="5–9 oct. 2026 · Meet IEEE, IEEE Day, Chapters, Tech Day y gira al CENAT.">
+<meta property="og:image" content="assets/mapache.png">
+<link rel="icon" href="assets/mapache.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#081f45}
+a{color:#7fd6ff}a:hover{color:#ffffff}
+.pix{font-family:'Silkscreen',monospace;letter-spacing:.04em}
+.tabs button{cursor:pointer;min-height:44px}
+.tabs button:hover{border-color:#ffd23f}
+.tabs button:focus-visible,.ev:focus-visible,.lev:focus-visible,.btn:focus-visible{outline:3px solid #ffd23f;outline-offset:3px}
+.colbody{position:relative;height:480px;background-image:repeating-linear-gradient(to bottom,rgba(127,214,255,.18) 0 1px,transparent 1px 80px);background-position:0 0}
+.col{transition:opacity .25s}
+.col.dim{opacity:.28}
+.ev{position:absolute;left:10px;right:10px;border:0;border-radius:10px;color:#fff;text-align:left;cursor:pointer;padding:10px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;box-shadow:0 4px 0 rgba(0,0,0,.35);font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;line-height:1.15;transition:transform .15s,box-shadow .15s}
+.ev:hover{transform:translateY(-3px);box-shadow:0 7px 0 rgba(0,0,0,.35)}
+.ev .t{display:block;font-size:12px;font-weight:700;opacity:.9;margin-top:4px}
+.list{display:none}
+.lev{width:100%;border:0;border-radius:10px;color:#fff;text-align:left;cursor:pointer;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;min-height:56px;box-shadow:0 4px 0 rgba(0,0,0,.35)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:8px;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;text-decoration:none;cursor:pointer;border:2px solid #7fd6ff}
+.mascot{image-rendering:pixelated;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.twinkle{animation:tw 1.8s ease-in-out infinite}
+@keyframes tw{50%{opacity:.25}}
+@media (max-width:900px){.timeline{display:none !important}.list{display:flex !important}.mascot-wrap{display:none !important}.twinkle{display:none !important}}
+@media (prefers-reduced-motion:reduce){.mascot,.twinkle{animation:none}.ev{transition:none}}
+
+.wrap{min-height:100vh;background:#081f45;color:#eaf6ff;font-family:'Nunito',sans-serif;position:relative;overflow:hidden;padding:32px 16px 64px;box-sizing:border-box}
+.inner{max-width:1360px;margin:0 auto;display:flex;flex-direction:column;gap:24px;position:relative}
+header{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+h1{margin:0;font-size:clamp(26px,5vw,60px);font-weight:700;color:#fff;line-height:1.05;text-shadow:0 4px 0 #04122b}
+.sub{display:flex;align-items:center;gap:16px}.sub span{width:72px;height:3px;background:#2fc6ff}
+.sub p{margin:0;font-size:clamp(14px,2vw,22px);color:#cfe9ff}
+#countdown{margin:4px 0 0;font-size:15px;font-weight:800;color:#ffd23f}
+.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.tabs button{padding:0 16px;border-radius:8px;font-size:13px;border:2px solid #1d4b8f;background:#0d2c5e;color:#eaf6ff}
+.tabs button[aria-pressed=true]{background:#ffd23f;border-color:#ffd23f;color:#081f45}
+.timeline{display:grid;grid-template-columns:84px repeat(5,minmax(0,1fr));gap:12px}
+.hours{position:relative;height:480px;border-right:3px solid #2fc6ff;margin-right:6px;margin-top:80px}
+.hours div{position:absolute;right:-10px;transform:translateY(-50%);display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;white-space:nowrap}
+.hours i{width:11px;height:11px;border-radius:50%;background:#2fc6ff;display:inline-block}
+.col{background:#0d2c5e;border:2px solid #1d4b8f;border-radius:12px;overflow:hidden}
+.colhead{height:76px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border-bottom:2px solid #1d4b8f}
+.colhead h2{margin:0;font-size:14px;font-weight:700;color:#fff;text-align:center}
+.bar{width:56px;height:4px;border-radius:2px}
+.list{flex-direction:column;gap:20px}.lday{display:flex;flex-direction:column;gap:10px}
+.lday h2{margin:0;font-size:15px;color:#fff;display:flex;align-items:center;gap:10px}
+.lday h2 small{font-family:'Nunito',sans-serif;font-size:13px;color:#a9cdee}
+.ic{flex-shrink:0;display:flex}
+.hint{margin:0;text-align:center;font-size:14px;color:#a9cdee}
+.mascot-wrap{position:absolute;right:8px;bottom:0;width:230px;pointer-events:none}
+.star{position:absolute}
+dialog{border:3px solid;border-radius:14px;padding:0;width:min(460px,calc(100% - 32px));background:#0d2c5e;color:#eaf6ff;box-shadow:0 8px 0 rgba(0,0,0,.4);font-family:'Nunito',sans-serif}
+dialog::backdrop{background:rgba(3,12,30,.72)}
+.dhead{color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dhead h3{margin:4px 0 0;font-size:24px;font-weight:900;line-height:1.1}
+.dhead .ic svg{width:36px;height:36px}
+.dbody{padding:20px;display:flex;flex-direction:column;gap:14px}
+dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 16px;font-size:15px}
+dt{font-weight:800;color:#a9cdee}dd{margin:0;font-weight:800}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+@media (max-width:900px){.timeline{display:none}.list{display:flex}.mascot-wrap,.star{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="star twinkle" style="left:4%;top:36px"><svg width="56" height="56" viewBox="0 0 8 8" aria-hidden="true" style="shape-rendering: crispEdges"><path fill="#ffd23f" d="M3 0h2v3h3v2H5v3H3V5H0V3h3z"></path></svg></div>
+<div class="star twinkle" style="left:11%;top:110px;animation-delay:.6s"><svg width="22" height="22" viewBox="0 0 8 8" aria-hidden="true" style="shape-rendering: crispEdges"><path fill="#ffd23f" d="M3 0h2v3h3v2H5v3H3V5H0V3h3z"></path></svg></div>
+<div class="star twinkle" style="right:6%;top:44px;animation-delay:.3s"><svg width="22" height="22" viewBox="0 0 8 8" aria-hidden="true" style="shape-rendering: crispEdges"><path fill="#ffd23f" d="M3 0h2v3h3v2H5v3H3V5H0V3h3z"></path></svg></div>
+<div class="star twinkle" style="right:12%;top:120px;animation-delay:1s"><svg width="20" height="20" viewBox="0 0 8 8" aria-hidden="true" style="shape-rendering: crispEdges"><path fill="#2fc6ff" d="M3 0h2v3h3v2H5v3H3V5H0V3h3z"></path></svg></div>
+<main class="inner">
+<header>
+<h1 class="pix">Agenda · Semana Universitaria</h1>
+<div class="sub"><span></span><p class="pix">IEEE UNA · 5–9 oct. 2026</p><span></span></div>
+<p id="countdown"></p>
+</header>
+<nav class="tabs" id="tabs" aria-label="Filtrar por día"></nav>
+<section class="timeline" id="timeline" aria-label="Horario semanal"><div><div class="hours" id="hours"></div></div></section>
+<section class="list" id="list" aria-label="Horario por día"></section>
+<p class="hint">Tocá cualquier actividad para ver detalles y agregarla a tu calendario.</p>
+</main>
+<div class="mascot-wrap"><img class="mascot" src="assets/mapache.png" alt="Mascota mapache de la UNA" style="width:100%;display:block"></div>
+</div>
+<dialog id="dlg" aria-labelledby="d-title">
+<div class="dhead" id="d-head"><div><span class="pix" id="d-day" style="font-size:12px"></span><h3 id="d-title"></h3></div><span class="ic" id="d-ic"></span></div>
+<div class="dbody">
+<dl><dt>Fecha</dt><dd id="d-date"></dd><dt>Hora</dt><dd id="d-time"></dd><dt>Lugar</dt><dd id="d-place">[Lugar por confirmar]</dd></dl>
+<div class="actions">
+<a class="btn" id="d-gcal" target="_blank" rel="noopener" style="background:#ffd23f;border-color:#ffd23f;color:#081f45">Agregar a Google Calendar</a>
+<button type="button" class="btn" id="d-close" style="background:transparent;color:#eaf6ff">Cerrar</button>
+</div>
+</div>
+</dialog>
+<script>
+var DAYS = [
+  { name: 'Lunes', theme: 'Meet IEEE', accent: '#2fc6ff', date: 'lunes 5 de octubre', d: 5 },
+  { name: 'Martes', theme: 'IEEE Day', accent: '#7cc63a', date: 'martes 6 de octubre', d: 6 },
+  { name: 'Miércoles', theme: 'Chapters', accent: '#ffb020', date: 'miércoles 7 de octubre', d: 7 },
+  { name: 'Jueves', theme: 'Tech Day', accent: '#ff4f8b', date: 'jueves 8 de octubre', d: 8 },
+  { name: 'Viernes', theme: 'CENAT', accent: '#2fc6ff', date: 'viernes 9 de octubre', d: 9 }
+];
+var COLORS = { blue: '#0a74a6', green: '#4a8320', orange: '#b25a00', pink: '#b0195a' };
+var EVENTS = [
+  { day: 0, title: 'Stand informativo', s: '10:30', e: '11:45', c: 'blue', ic: 'chat' },
+  { day: 0, title: 'Stand informativo', s: '14:00', e: '15:00', c: 'blue', ic: 'chat' },
+  { day: 1, title: 'Engineering a Better Tomorrow', s: '9:30', e: '10:35', c: 'green', ic: 'gear' },
+  { day: 1, title: 'Better Tomorrow Experience', s: '11:00', e: '12:15', c: 'green', ic: 'bulb' },
+  { day: 1, title: 'IEEE Day Celebration & Community Lunch', s: '13:00', e: '14:15', c: 'green', ic: 'apple' },
+  { day: 2, title: 'Stand Chapters', s: '9:00', e: '10:00', c: 'orange', ic: 'users' },
+  { day: 2, title: 'Chapter AESS', s: '10:45', e: '11:45', c: 'orange', ic: 'dish' },
+  { day: 3, title: 'Tech Playground', s: '10:30', e: '11:45', c: 'pink', ic: 'game' },
+  { day: 4, title: 'Gira: CENAT', s: '9:30', e: '10:45', c: 'blue', ic: 'map' }
+];
+var ICS = ['chat', 'gear', 'bulb', 'apple', 'users', 'dish', 'game', 'map'];
+function mins(t) { var p = t.split(':'); return +p[0] * 60 + +p[1]; }
+function fmt(t) { var m = mins(t), h = Math.floor(m / 60), mm = m % 60, ap = h >= 12 ? 'PM' : 'AM', h12 = h % 12 || 12; return h12 + ':' + (mm < 10 ? '0' : '') + mm + ' ' + ap; }
+function utc(d, t) { var m = mins(t) + 360, h = Math.floor(m / 60), mm = m % 60; return '202610' + (d < 10 ? '0' : '') + d + 'T' + (h < 10 ? '0' : '') + h + (mm < 10 ? '0' : '') + mm + '00Z'; }
+var ICON_SVG = {"chat": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 5h16v11H9l-5 4z\"></path><path d=\"M9 10.5h.01M12 10.5h.01M15 10.5h.01\"></path></svg>", "gear": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1\"></path></svg>", "bulb": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6M10 21h4\"></path><path d=\"M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.6 1 2.5h6c0-.9.2-1.7 1-2.5A6 6 0 0 0 12 3z\"></path></svg>", "apple": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 7c-2-1.5-7-1-7 5 0 4 3 9 5 9 1 0 1.3-.5 2-.5s1 .5 2 .5c2 0 5-5 5-9 0-6-5-6.5-7-5z\"></path><path d=\"M12 7c0-2 1-4 3-4\"></path></svg>", "users": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"9\" cy=\"8\" r=\"3\"></circle><path d=\"M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6\"></path><circle cx=\"17\" cy=\"9\" r=\"2.5\"></circle><path d=\"M16 14.2c2.9.4 5 2.8 5 5.8\"></path></svg>", "dish": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 9a9 9 0 0 0 10 10z\"></path><path d=\"M10 14l3-3\"></path><path d=\"M15 5a4 4 0 0 1 4 4M15 1.5a7.5 7.5 0 0 1 7.5 7.5\"></path></svg>", "game": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10a5 5 0 0 1 5 5v1a3.5 3.5 0 0 1-6.3 2.1L14.5 14h-5l-1.2 1.1A3.5 3.5 0 0 1 2 13v-1a5 5 0 0 1 5-5z\"></path><path d=\"M7 10v3M5.5 11.5h3M16 11h.01M18 12.5h.01\"></path></svg>", "map": "<svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z\"></path><path d=\"M9 3v15M15 6v15\"></path></svg>"};
+
+var state = { day: -1 };
+var PX = 80 / 60, START = 540;
+var EV = EVENTS.map(function (ev, i) {
+  var D = DAYS[ev.day];
+  return Object.assign({}, ev, { i: i, D: D, color: COLORS[ev.c], time: fmt(ev.s) + ' – ' + fmt(ev.e),
+    gcal: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(ev.title + ' · Semana U IEEE UNA') + '&dates=' + utc(D.d, ev.s) + '/' + utc(D.d, ev.e) + '&details=' + encodeURIComponent('Semana Universitaria IEEE UNA · ' + D.name + ' ' + D.theme) });
+});
+function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
+function card(e, cls, style) {
+  return '<button type="button" class="' + cls + '" data-i="' + e.i + '" aria-label="' + esc(e.title + ', ' + e.D.name + ' ' + e.time) + '" style="' + style + 'background:' + e.color + '"><span>' + esc(e.title) + '<span style="display:block;font-size:12px;font-weight:700;opacity:.9;margin-top:4px">' + e.time + '</span></span><span class="ic">' + ICON_SVG[e.ic] + '</span></button>';
+}
+document.getElementById('hours').innerHTML = [9, 10, 11, 12, 13, 14, 15].map(function (h) {
+  return '<div style="top:' + (h - 9) * 80 + 'px">' + (h % 12 || 12) + ':00 ' + (h >= 12 ? 'PM' : 'AM') + '<i></i></div>';
+}).join('');
+var tl = document.getElementById('timeline');
+DAYS.forEach(function (D, di) {
+  var col = document.createElement('div'); col.className = 'col'; col.dataset.day = di;
+  col.innerHTML = '<div class="colhead"><h2 class="pix">' + D.name + ' · ' + D.theme + '</h2><span class="bar" style="background:' + D.accent + '"></span></div><div class="colbody">' +
+    EV.filter(function (e) { return e.day === di; }).map(function (e) {
+      var top = Math.round((mins(e.s) - START) * PX) + 6, h = Math.max(64, Math.round((mins(e.e) - mins(e.s)) * PX) - 6);
+      return card(e, 'ev', 'top:' + top + 'px;height:' + h + 'px;');
+    }).join('') + '</div>';
+  tl.appendChild(col);
+});
+function render() {
+  document.getElementById('tabs').innerHTML = [{ label: 'Todos', i: -1 }].concat(DAYS.map(function (D, i) { return { label: D.name, i: i }; })).map(function (t) {
+    return '<button type="button" class="pix" data-day="' + t.i + '" aria-pressed="' + (state.day === t.i) + '">' + t.label + '</button>';
+  }).join('');
+  document.querySelectorAll('.timeline .col').forEach(function (c) { c.classList.toggle('dim', state.day >= 0 && +c.dataset.day !== state.day); });
+  document.getElementById('list').innerHTML = DAYS.map(function (D, di) {
+    if (state.day >= 0 && state.day !== di) return '';
+    return '<div class="lday"><h2 class="pix"><span style="width:14px;height:14px;background:' + D.accent + '"></span>' + D.name + ' · ' + D.theme + ' <small>' + D.date + '</small></h2>' +
+      EV.filter(function (e) { return e.day === di; }).map(function (e) { return card(e, 'lev', ''); }).join('') + '</div>';
+  }).join('');
+}
+var dlg = document.getElementById('dlg');
+function openEv(i) {
+  var e = EV[i];
+  dlg.style.borderColor = e.color; document.getElementById('d-head').style.background = e.color;
+  document.getElementById('d-day').textContent = e.D.name + ' · ' + e.D.theme;
+  document.getElementById('d-title').textContent = e.title;
+  document.getElementById('d-ic').innerHTML = ICON_SVG[e.ic];
+  document.getElementById('d-date').textContent = e.D.date;
+  document.getElementById('d-time').textContent = e.time;
+  document.getElementById('d-gcal').href = e.gcal;
+  dlg.showModal();
+}
+document.addEventListener('click', function (ev) {
+  var t = ev.target.closest('[data-i]'); if (t) return openEv(+t.dataset.i);
+  var d = ev.target.closest('.tabs [data-day]'); if (d) { state.day = +d.dataset.day; render(); var b = document.querySelector('.tabs [data-day="' + state.day + '"]'); if (b) b.focus(); }
+});
+document.getElementById('d-close').onclick = function () { dlg.close(); };
+dlg.addEventListener('click', function (ev) { if (ev.target === dlg) dlg.close(); });
+var ms = new Date('2026-10-05T09:00:00-06:00').getTime() - Date.now(), dd = Math.ceil(ms / 86400000);
+document.getElementById('countdown').textContent = ms > 0 ? (dd <= 1 ? '¡Arranca mañana!' : 'Faltan ' + dd + ' días · ¡nos vemos!') : (Date.now() < new Date('2026-10-10T00:00:00-06:00').getTime() ? '¡La Semana U está en curso!' : '¡Gracias por participar!');
+render();
+</script>
+</body>
+</html>
