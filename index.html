@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agenda · Semana Universitaria IEEE UNA</title>
-<meta name="description" content="Agenda interactiva de la Semana Universitaria IEEE UNA, 5–9 de octubre 2026.">
+<meta name="description" content="Agenda interactiva de la Semana Universitaria IEEE UNA, 6–9 de octubre 2026.">
 <meta property="og:title" content="Agenda · Semana Universitaria IEEE UNA">
-<meta property="og:description" content="5–9 oct. 2026 · Meet IEEE, IEEE Day, Chapters, Tech Day y gira al CENAT.">
+<meta property="og:description" content="6–9 oct. 2026 · IEEE Day, Chapters, Tech Day y gira al CENAT.">
 <meta property="og:image" content="assets/mapache.png">
 <link rel="icon" href="assets/mapache.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@ a{color:#7fd6ff}a:hover{color:#ffffff}
 .tabs button{cursor:pointer;min-height:44px}
 .tabs button:hover{border-color:#ffd23f}
 .tabs button:focus-visible,.ev:focus-visible,.lev:focus-visible,.btn:focus-visible{outline:3px solid #ffd23f;outline-offset:3px}
-.colbody{position:relative;height:700px;background-image:repeating-linear-gradient(to bottom,rgba(127,214,255,.18) 0 1px,transparent 1px 100px);background-position:0 0}
+.colbody{position:relative;height:800px;background-image:repeating-linear-gradient(to bottom,rgba(127,214,255,.18) 0 1px,transparent 1px 100px);background-position:0 0}
 .col{transition:opacity .25s}
 .col.dim{opacity:.28}
 .ev{position:absolute;left:10px;right:10px;border:0;border-radius:10px;color:#fff;text-align:left;cursor:pointer;padding:10px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;box-shadow:0 4px 0 rgba(0,0,0,.35);font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(12.5px,1vw,16px);line-height:1.15;overflow-wrap:anywhere;transition:transform .15s,box-shadow .15s}
@@ -36,8 +36,8 @@ a{color:#7fd6ff}a:hover{color:#ffffff}
 @keyframes bob{50%{transform:translateY(-8px)}}
 .twinkle{animation:tw 1.8s ease-in-out infinite}
 @keyframes tw{50%{opacity:.25}}
-@media (max-width:1250px){.timeline{display:none !important}.list{display:flex !important}}
-@media (max-width:1250px){
+@media (max-width:1023px){.timeline{display:none !important}.list{display:flex !important}}
+@media (max-width:1023px){
 .wrap,.root{padding-bottom:clamp(70px,18vw,150px) !important}
 header{padding:0 clamp(40px,12vw,110px) !important}
 .d-big{width:clamp(38px,11vw,100px) !important;left:1% !important;top:clamp(10px,3vw,26px) !important}
@@ -61,8 +61,8 @@ h1{margin:0;font-size:clamp(26px,5vw,60px);font-weight:700;color:#fff;line-heigh
 .tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
 .tabs button{padding:0 16px;border-radius:8px;font-size:13px;border:2px solid #1d4b8f;background:#0d2c5e;color:#eaf6ff}
 .tabs button[aria-pressed=true]{background:#ffd23f;border-color:#ffd23f;color:#081f45}
-.timeline{display:grid;grid-template-columns:84px repeat(5,minmax(0,1fr));gap:12px}
-.hours{position:relative;height:700px;border-right:3px solid #2fc6ff;margin-right:6px;margin-top:80px}
+.timeline{display:grid;grid-template-columns:84px repeat(4,minmax(0,1fr));gap:12px}
+.hours{position:relative;height:800px;border-right:3px solid #2fc6ff;margin-right:6px;margin-top:80px}
 .hours div{position:absolute;right:-10px;transform:translateY(-50%);display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;white-space:nowrap}
 .hours i{width:11px;height:11px;border-radius:50%;background:#2fc6ff;display:inline-block}
 .col{background:#0d2c5e;border:2px solid #1d4b8f;border-radius:12px;overflow:hidden}
@@ -90,8 +90,8 @@ dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;f
 .soon{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:8px;border:2px dashed #7fd6ff;color:#cfe9ff;font-weight:800;font-size:13px}
 dt{font-weight:800;color:#a9cdee}dd{margin:0;font-weight:800}
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
-@media (max-width:1250px){.timeline{display:none}.list{display:flex}}
-@media (max-width:1250px){
+@media (max-width:1023px){.timeline{display:none}.list{display:flex}}
+@media (max-width:1023px){
 .wrap{padding:clamp(18px,5vw,32px) clamp(18px,5.5vw,48px) 40px}
 .inner{gap:clamp(14px,4vw,24px)}
 header{gap:clamp(4px,1.5vw,10px)}
@@ -119,7 +119,7 @@ dl{font-size:clamp(13px,3.4vw,15px);gap:4px 12px}
 .btn{font-size:clamp(13px,3.4vw,15px);min-height:clamp(40px,10.5vw,44px);padding:0 clamp(12px,3.6vw,18px)}
 .soon{font-size:clamp(12px,3.1vw,13px);min-height:clamp(40px,10.5vw,44px);padding:0 12px}
 }
-@media (max-width:1250px){
+@media (max-width:1023px){
 .list{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(8px,2.6vw,14px);align-items:start}
 .list.single{grid-template-columns:minmax(0,1fr)}
 .lday{background:#0d2c5e;border:2px solid #1d4b8f;border-radius:clamp(8px,2.4vw,12px);padding:clamp(8px,2.4vw,12px);gap:clamp(6px,1.8vw,10px) !important}
@@ -129,15 +129,14 @@ dl{font-size:clamp(13px,3.4vw,15px);gap:4px 12px}
 .lev{font-size:clamp(12px,3.4vw,16px) !important;padding:clamp(7px,2vw,12px) clamp(8px,2.4vw,12px) !important;min-height:0 !important;align-items:flex-start !important;gap:6px !important}
 .lev .ic img{width:clamp(20px,5.6vw,30px) !important;height:clamp(20px,5.6vw,30px) !important}
 }
-@media (min-width:600px) and (max-width:1250px){.list{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:1250px){
+@media (min-width:600px) and (max-width:1023px){.list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1023px){
 .list{align-items:stretch !important}
 .lday h2 .dt{display:flex;flex-direction:column;align-items:center;line-height:1.35}
 .lev{align-items:center !important;min-height:clamp(60px,15vw,78px) !important;line-height:1.2 !important}
 }
 @media (max-width:599px){.list:not(.single) .lday:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc((100% - clamp(8px,2.6vw,14px)) / 2)}}
-@media (min-width:600px) and (max-width:1250px){.list:not(.single){grid-template-columns:repeat(6,minmax(0,1fr)) !important}.list:not(.single) .lday{grid-column:span 2}.list:not(.single) .lday:nth-child(4){grid-column:2/4}.list:not(.single) .lday:nth-child(5){grid-column:4/6}}
-@media (max-width:1250px){.lday h2 small{white-space:nowrap}}
+@media (max-width:1023px){.lday h2 small{white-space:nowrap}}
 /* Escala tipográfica: cada tipo de texto crece con el ancho de pantalla entre un mínimo y un máximo */
 :root{
 --fs-display:clamp(18px,.5rem + 3.6vw,64px);
@@ -171,7 +170,7 @@ h1{font-size:var(--fs-display) !important}
 <main class="inner">
 <header>
 <h1 class="pix">Agenda · Semana Universitaria</h1>
-<div class="sub"><span></span><p class="pix">IEEE UNA · 5–9 oct. 2026</p><span></span></div>
+<div class="sub"><span></span><p class="pix">IEEE UNA · 6–9 oct. 2026</p><span></span></div>
 </header>
 <nav class="tabs" id="tabs" aria-label="Filtrar por día"></nav>
 <section class="timeline" id="timeline" aria-label="Horario semanal"><div><div class="hours" id="hours"></div></div></section>
@@ -195,7 +194,6 @@ h1{font-size:var(--fs-display) !important}
 </dialog>
 <script>
 var DAYS = [
-  { name: 'Lunes', theme: 'Meet IEEE', accent: '#2fc6ff', date: 'lunes 5 de octubre', d: 5 },
   { name: 'Martes', theme: 'IEEE Day', accent: '#7cc63a', date: 'martes 6 de octubre', d: 6 },
   { name: 'Miércoles', theme: 'Chapters', accent: '#ffb020', date: 'miércoles 7 de octubre', d: 7 },
   { name: 'Jueves', theme: 'Tech Day', accent: '#ff4f8b', date: 'jueves 8 de octubre', d: 8 },
@@ -203,33 +201,27 @@ var DAYS = [
 ];
 var COLORS = { blue: '#0a74a6', green: '#4a8320', orange: '#b25a00', pink: '#b0195a' };
 var EVENTS = [
-  { day: 0, title: "Stand informativo", s: "12:00", e: "13:00", c: "blue", link: "", ic: "chat",
-    place: "Frente a la soda Padre Royo",
-    desc: "Find Your IEEE Society: descubrí qué sociedad de IEEE va con vos (Software, Salud, Energía, Ciencia, Ambiente, Robótica, Comunicaciones o Nano). IEEE Roulette: girá la ruleta (IEEE, Tecnología, IA, Robótica, Programación, Random o Reto) y ganá stickers, chocolates, pines, lapiceros o merch de IEEE." },
-  { day: 0, title: "Stand informativo", s: "14:00", e: "15:00", c: "blue", link: "", ic: "chat",
-    place: "Edificio de Generales",
-    desc: "Find Your IEEE Society: descubrí qué sociedad de IEEE va con vos (Software, Salud, Energía, Ciencia, Ambiente, Robótica, Comunicaciones o Nano). IEEE Roulette: girá la ruleta (IEEE, Tecnología, IA, Robótica, Programación, Random o Reto) y ganá stickers, chocolates, pines, lapiceros o merch de IEEE." },
-  { day: 1, title: "Engineering a Better Tomorrow", s: "10:00", e: "11:00", c: "green", link: "", ic: "gear",
+  { day: 0, title: "Engineering a Better Tomorrow", s: "10:00", e: "11:00", c: "green", link: "", ic: "gear",
     place: "Auditorio Marco Tulio, CIDE",
     desc: "Exposición corta (máx. 20 min) sobre IEEE Day e IEEE, y mini panel con un charlista del CENAT sobre proyectos, investigación e iniciativas de ciencia, ingeniería y tecnología que ayudan a construir un mejor futuro." },
-  { day: 1, title: "Better Tomorrow Experience", s: "11:00", e: "12:00", c: "green", link: "", ic: "bulb",
+  { day: 0, title: "Better Tomorrow Experience", s: "11:00", e: "12:00", c: "green", link: "", ic: "bulb",
     place: "Afueras del Auditorio Marco Tulio, CIDE",
     desc: "Actividades prácticas en grupos. A) Water Lab Filter: diseñá un filtro de agua con filtros de café y otros materiales. B) LEGO Mindstorms Robot Design: construí un prototipo de robot de limpieza. C) Natural pH Detector: hacé tiras de pH con repollo morado y comparalas con tiras comerciales." },
-  { day: 1, title: "Celebración IEEE Day", s: "12:00", e: "14:30", c: "green", link: "", ic: "apple",
+  { day: 0, title: "Celebración IEEE Day", s: "12:00", e: "14:30", c: "green", link: "", ic: "apple",
     place: "Afueras del Auditorio Marco Tulio, CIDE",
     desc: "Pastel IEEE Day, decoración oficial y foto grupal. Dos lonas con el logo de IEEE Day para dibujar o pintar lo que para vos representa o inspira un mejor futuro para la ingeniería." },
-  { day: 2, title: "Stand Chapters", s: "11:00", e: "13:00", c: "orange", link: "", ic: "users",
-    place: "Edificio de Biología y Matemática, por la soda de Biología",
+  { day: 1, title: "Stand Chapters", s: "11:00", e: "13:00", c: "orange", link: "", ic: "users",
+    place: "Por la soda de Biología",
     desc: "Conocé capítulos y grupos de afinidad IEEE como EMBS, NPSS y AESS. Cada uno tendrá una actividad interactiva de unos 40 minutos para presentar su área, proyectos y oportunidades de participación." },
-  { day: 2, title: "Chapter AESS", s: "14:00", e: "15:30", c: "orange", link: "", ic: "rocket",
+  { day: 1, title: "Chapter AESS", s: "14:00", e: "15:30", c: "orange", link: "", ic: "rocket",
     place: "Aula de Biología",
     desc: "Charla introductoria a IEEE AESS y a la ingeniería aeroespacial y satelital, con un taller de papercraft del CubeSat Proyecto Irazú (BATSU-CS1), el primer satélite costarricense." },
-  { day: 3, title: "Tech Playground", s: "9:30", e: "11:00", c: "pink", link: "", ic: "game",
+  { day: 2, title: "Tech Playground", s: "9:30", e: "11:00", c: "pink", link: "", ic: "game",
     place: "Edificio de Generales",
     desc: "A) Fotosíntesis visible: experimento con discos de hojas bajo distintas condiciones de luz. B) Extracción de ADN de fresa. C) Science Escape Room: resolvé retos de ciencia, ingeniería y lógica en equipo antes de que se acabe el tiempo." },
-  { day: 4, title: "Gira: CENAT", s: "9:00", e: "10:00", c: "blue", link: "", ic: "map",
-    place: "Laboratorio CNCA-CeNAT",
-    desc: "Visita al laboratorio CNCA-CeNAT, atendida por el investigador Fabricio Quirós y el técnico de infraestructura Edward Soto, quienes explicarán sobre KABRE." }
+  { day: 3, title: "Gira: CENAT", s: "8:00", e: "11:00", c: "blue", link: "", ic: "map",
+    place: "Salida: frente a la salida del parqueo del Edificio de Ciencias Sociales",
+    desc: "Salida a las 8:00 a. m. frente a la salida del parqueo del Edificio de Ciencias Sociales y regreso a las 11:00 a. m. Incluye la visita al laboratorio CNCA-CeNAT, atendida por el investigador Fabricio Quirós y el técnico de infraestructura Edward Soto, quienes explicarán sobre KABRE." }
 ];
 var ICS = ['chat', 'gear', 'bulb', 'apple', 'users', 'dish', 'game', 'map'];
 function mins(t) { var p = t.split(':'); return +p[0] * 60 + +p[1]; }
@@ -237,7 +229,7 @@ function fmt(t) { var m = mins(t), h = Math.floor(m / 60), mm = m % 60, ap = h >
 function utc(d, t) { var m = mins(t) + 360, h = Math.floor(m / 60), mm = m % 60; return '202610' + (d < 10 ? '0' : '') + d + 'T' + (h < 10 ? '0' : '') + h + (mm < 10 ? '0' : '') + mm + '00Z'; }
 
 var state = { day: -1 };
-var HOUR = 100, GAP = 8, PX = HOUR / 60, START = 540;
+var HOUR = 100, GAP = 8, PX = HOUR / 60, START = 480;
 var EV = EVENTS.map(function (ev, i) {
   var D = DAYS[ev.day];
   return Object.assign({}, ev, { i: i, D: D, color: COLORS[ev.c], time: fmt(ev.s) + ' – ' + fmt(ev.e),
@@ -248,8 +240,8 @@ function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(
 function card(e, cls, style) {
   return '<button type="button" class="' + cls + '" data-i="' + e.i + '" aria-label="' + esc(e.title + ', ' + e.D.name + ' ' + e.time) + '" style="' + style + 'background:' + e.color + '"><span>' + esc(e.title) + '<span style="display:block;font-size:11px;font-weight:700;opacity:.9;margin-top:3px">' + e.time + '</span></span><span class="ic">' + icon(e.ic) + '</span></button>';
 }
-document.getElementById('hours').innerHTML = [9, 10, 11, 12, 13, 14, 15, 16].map(function (h) {
-  return '<div style="top:' + (h - 9) * HOUR + 'px">' + (h % 12 || 12) + ':00 ' + (h >= 12 ? 'PM' : 'AM') + '<i></i></div>';
+document.getElementById('hours').innerHTML = [8, 9, 10, 11, 12, 13, 14, 15, 16].map(function (h) {
+  return '<div style="top:' + (h - 8) * HOUR + 'px">' + (h % 12 || 12) + ':00 ' + (h >= 12 ? 'PM' : 'AM') + '<i></i></div>';
 }).join('');
 var tl = document.getElementById('timeline');
 DAYS.forEach(function (D, di) {
