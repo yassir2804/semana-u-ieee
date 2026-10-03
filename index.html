@@ -201,16 +201,16 @@ var DAYS = [
 ];
 var COLORS = { blue: '#0a74a6', green: '#4a8320', orange: '#b25a00', pink: '#b0195a' };
 var EVENTS = [
-  { day: 0, title: "Engineering a Better Tomorrow", s: "10:00", e: "11:00", c: "green", link: "", ic: "gear",
+  { day: 0, title: "Engineering a Better Tomorrow", s: "10:00", e: "11:00", c: "green", link: "https://events.vtools.ieee.org/m/580934", ic: "gear",
     place: "Auditorio Marco Tulio, CIDE",
     desc: "Exposición corta (máx. 20 min) sobre IEEE Day e IEEE, y mini panel con un charlista del CENAT sobre proyectos, investigación e iniciativas de ciencia, ingeniería y tecnología que ayudan a construir un mejor futuro." },
   { day: 0, title: "Better Tomorrow Experience", s: "11:00", e: "12:00", c: "green", link: "", ic: "bulb",
     place: "Afueras del Auditorio Marco Tulio, CIDE",
     desc: "Actividades prácticas en grupos. A) Water Lab Filter: diseñá un filtro de agua con filtros de café y otros materiales. B) LEGO Mindstorms Robot Design: construí un prototipo de robot de limpieza. C) Natural pH Detector: hacé tiras de pH con repollo morado y comparalas con tiras comerciales." },
-  { day: 0, title: "Celebración IEEE Day", s: "12:00", e: "14:30", c: "green", link: "", ic: "apple",
+  { day: 0, title: "Celebración IEEE Day", s: "12:00", e: "14:30", c: "green", link: "https://events.vtools.ieee.org/m/581165", ic: "apple",
     place: "Afueras del Auditorio Marco Tulio, CIDE",
     desc: "Pastel IEEE Day, decoración oficial y foto grupal. Dos lonas con el logo de IEEE Day para dibujar o pintar lo que para vos representa o inspira un mejor futuro para la ingeniería." },
-  { day: 1, title: "Stand Chapters", s: "11:00", e: "13:00", c: "orange", link: "", ic: "users",
+  { day: 1, title: "Stand Chapters", s: "11:00", e: "13:00", c: "orange", link: "", noReg: true, ic: "users",
     place: "Por la soda de Biología",
     desc: "Conocé capítulos y grupos de afinidad IEEE como EMBS, NPSS y AESS. Cada uno tendrá una actividad interactiva de unos 40 minutos para presentar su área, proyectos y oportunidades de participación." },
   { day: 1, title: "Chapter AESS", s: "14:00", e: "15:30", c: "orange", link: "", ic: "rocket",
@@ -279,7 +279,7 @@ function openEv(i) {
   document.getElementById('d-time').textContent = e.time;
   document.getElementById('d-gcal').href = e.gcal;
   var reg = document.getElementById('d-reg'), soon = document.getElementById('d-soon');
-  reg.hidden = !e.link; soon.hidden = !!e.link; if (e.link) reg.href = e.link;
+  reg.hidden = !e.link; soon.hidden = !!e.link || !!e.noReg; if (e.link) reg.href = e.link;
   dlg.showModal();
 }
 document.addEventListener('click', function (ev) {
